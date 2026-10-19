@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0b1020">
+<meta name="description" content="Jay Anne F. Sumaway — IT graduate portfolio showcasing software projects, QA testing, web development, and technical support.">
+<title>Jay Anne F. Sumaway | Developer Portfolio</title>
+<style>
+:root{--bg:#090d19;--panel:#101729;--panel2:#141e33;--text:#edf2ff;--muted:#9aa8c2;--line:rgba(160,180,220,.16);--accent:#8b7cff;--cyan:#61e6d0;--green:#a3e635;--shadow:0 24px 70px rgba(0,0,0,.3)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{margin:0;background:radial-gradient(ellipse at 15% 0%,rgba(82,69,190,.18),transparent 35%),radial-gradient(ellipse at 90% 25%,rgba(44,181,168,.08),transparent 28%),var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.65}
+a{color:inherit;text-decoration:none}
+button,a{ -webkit-tap-highlight-color:transparent}
+.container{width:min(1120px,calc(100% - 40px));margin:auto}
+.nav{position:sticky;top:0;z-index:10;background:rgba(9,13,25,.82);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
+.nav-inner{height:74px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.logo{display:flex;align-items:center;gap:11px;font-weight:800;letter-spacing:-.04em}
+.logo-mark{display:grid;place-items:center;width:37px;height:37px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#4dcae7);color:#08101c;font-family:ui-monospace,monospace;font-size:15px;box-shadow:0 8px 28px #7769ff33}
+.nav-links{display:flex;align-items:center;gap:24px;color:var(--muted);font-size:13px}
+.nav-links a:hover{color:var(--text)}
+.nav-cta,.button{display:inline-flex;align-items:center;justify-content:center;gap:9px;border:1px solid var(--line);border-radius:11px;padding:10px 15px;font-size:13px;font-weight:700;transition:transform .2s,border-color .2s,background .2s}
+.nav-cta:hover,.button:hover{transform:translateY(-2px);border-color:#8b7cff88}
+.button.primary{background:linear-gradient(135deg,#9588ff,#6c7dff);border-color:transparent;color:#080d1a;box-shadow:0 12px 32px #7165f833}
+.button.ghost{background:rgba(255,255,255,.025)}
+.menu-toggle{display:none;background:transparent;border:1px solid var(--line);color:var(--text);border-radius:9px;padding:8px 10px;font-size:18px}
+.hero{padding:86px 0 72px;display:grid;grid-template-columns:1.12fr .88fr;gap:64px;align-items:center;min-height:590px}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;border:1px solid rgba(163,230,53,.22);background:rgba(163,230,53,.06);color:#c6f58c;padding:6px 11px;border-radius:999px;font:12px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.02em}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 12px #a3e63588}
+h1{font-size:clamp(42px,6vw,72px);line-height:1.04;letter-spacing:-.065em;margin:23px 0 20px;font-weight:850}
+.gradient{background:linear-gradient(100deg,#a99eff 5%,#66e6d5 75%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{font-size:17px;max-width:560px;color:var(--muted);margin:0 0 27px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px}
+.quick-stats{display:flex;gap:28px;margin-top:35px;flex-wrap:wrap}
+.stat strong{display:block;font-size:19px;letter-spacing:-.04em}
+.stat span{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em}
+.terminal{border:1px solid rgba(154,168,194,.22);border-radius:18px;background:linear-gradient(145deg,#121a2d,#0c1220);box-shadow:var(--shadow);overflow:hidden;transform:rotate(1deg)}
+.terminal-top{display:flex;align-items:center;gap:7px;padding:14px 17px;border-bottom:1px solid var(--line);color:#8492ad;font:12px ui-monospace,monospace}
+.traffic{width:9px;height:9px;border-radius:50%;background:#ff6b7c}.traffic:nth-child(2){background:#ffc66b}.traffic:nth-child(3){background:#6ee7b7}
+.terminal-title{margin-left:auto}
+.terminal-body{padding:23px 23px 27px;font:13px/2 ui-monospace,SFMono-Regular,Menlo,monospace;min-height:305px}
+.code-line{display:block;white-space:pre-wrap;overflow-wrap:anywhere}
+.line-no{display:inline-block;width:24px;color:#465572;user-select:none}
+.kw{color:#c7a7ff}.prop{color:#76ddcf}.str{color:#f2c879}.comment{color:#72829f}.func{color:#80b9ff}
+.terminal-footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;border-top:1px solid var(--line);padding:12px 18px;color:#8290aa;font:11px ui-monospace,monospace}
+.section{padding:78px 0}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:25px;margin-bottom:30px}
+.kicker{font:12px ui-monospace,monospace;color:var(--cyan);text-transform:uppercase;letter-spacing:.15em}
+h2{font-size:clamp(28px,4vw,42px);line-height:1.12;letter-spacing:-.05em;margin:9px 0 0}
+.section-head p{max-width:430px;color:var(--muted);margin:0;font-size:14px}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.card{border:1px solid var(--line);border-radius:16px;background:linear-gradient(145deg,rgba(20,30,51,.86),rgba(13,19,34,.86));padding:25px}
+.card p{color:var(--muted);font-size:14px;margin:10px 0 0}
+.card h3{margin:0;font-size:17px;letter-spacing:-.025em}
+.card-icon{display:grid;place-items:center;width:40px;height:40px;border-radius:12px;background:rgba(139,124,255,.13);color:#b8afff;font-size:19px;margin-bottom:16px}
+.focus-list{display:grid;gap:14px;margin-top:18px}
+.focus-row{display:flex;gap:12px;align-items:flex-start;color:var(--muted);font-size:13px}
+.check{color:var(--cyan);font-weight:800}
+.stack{display:flex;flex-wrap:wrap;gap:9px;margin-top:18px}
+.tag{font:12px ui-monospace,monospace;border:1px solid var(--line);background:rgba(255,255,255,.025);color:#c3cde1;border-radius:8px;padding:7px 10px}
+.project-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.project{position:relative;overflow:hidden;transition:transform .22s,border-color .22s}
+.project:hover{transform:translateY(-4px);border-color:rgba(139,124,255,.55)}
+.project-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:21px}
+.project-icon{width:45px;height:45px;display:grid;place-items:center;border-radius:13px;background:linear-gradient(135deg,rgba(139,124,255,.22),rgba(97,230,208,.12));font-size:21px}
+.project-type{font:11px ui-monospace,monospace;color:var(--cyan);text-transform:uppercase;letter-spacing:.1em}
+.project h3{font-size:19px}
+.project p{min-height:68px}
+.project .stack{margin-top:18px}
+.project-note{font-size:11px;color:#7584a0;margin-top:15px}
+.project-link{display:inline-flex;margin-top:17px;color:#b7b0ff;font-size:12px;font-weight:700}
+.project-link:hover{color:var(--cyan)}
+.workflow{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.step{padding:20px 17px;border:1px solid var(--line);border-radius:14px;background:rgba(16,23,41,.7)}
+.step-num{font:12px ui-monospace,monospace;color:var(--cyan)}
+.step h3{font-size:15px;margin:13px 0 6px}
+.step p{font-size:12px;color:var(--muted);margin:0}
+.timeline{border-left:1px solid rgba(139,124,255,.42);margin:8px 0 0 9px;padding-left:26px;display:grid;gap:25px}
+.timeline-item{position:relative}
+.timeline-item:before{content:"";position:absolute;left:-32px;top:7px;width:10px;height:10px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 5px #8b7cff20}
+.timeline-meta{font:11px ui-monospace,monospace;color:var(--cyan);letter-spacing:.04em}
+.timeline h3{margin:5px 0 4px;font-size:16px}
+.timeline p{margin:0;color:var(--muted);font-size:13px;max-width:750px}
+.contact-box{display:grid;grid-template-columns:1fr auto;align-items:center;gap:24px;padding:34px;border:1px solid rgba(139,124,255,.28);border-radius:20px;background:radial-gradient(ellipse at 90% 0%,rgba(97,230,208,.1),transparent 45%),linear-gradient(135deg,#151c34,#0e1425)}
+.contact-box p{color:var(--muted);max-width:590px;margin:12px 0 0;font-size:14px}
+.contact-actions{display:flex;flex-wrap:wrap;gap:10px}
+.footer{border-top:1px solid var(--line);padding:23px 0;color:#75839d;font:11px ui-monospace,monospace}
+.footer-inner{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.small-note{font-size:12px;color:#7686a2;margin-top:15px}
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .65s ease,transform .65s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+@media(max-width:850px){.hero{grid-template-columns:1fr;gap:38px;padding-top:64px}.terminal{max-width:600px;transform:none}.hero-copy{max-width:700px}.workflow{grid-template-columns:repeat(2,1fr)}.section-head{align-items:start;flex-direction:column}.contact-box{grid-template-columns:1fr}}
+@media(max-width:620px){.container{width:min(100% - 28px,1120px)}.nav-inner{height:65px}.menu-toggle{display:block}.nav-links{display:none;position:absolute;top:64px;left:0;right:0;padding:18px 22px;background:#0c1220;border-bottom:1px solid var(--line);flex-direction:column;align-items:flex-start;gap:16px}.nav-links.open{display:flex}.nav-cta{display:none}.hero{padding:54px 0 45px;min-height:auto}.hero p{font-size:15px}h1{font-size:47px}.quick-stats{gap:20px}.section{padding:57px 0}.about-grid,.project-grid{grid-template-columns:1fr}.project p{min-height:0}.workflow{grid-template-columns:1fr 1fr}.card{padding:21px}.contact-box{padding:24px}.terminal-body{padding:17px;font-size:11px}.terminal{overflow:hidden}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<header class="nav">
+  <div class="container nav-inner">
+    <a class="logo" href="#home" aria-label="Jay Anne home"><span class="logo-mark">&lt;/&gt;</span><span>jayanne<span style="color:var(--cyan)">.dev</span></span></a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+    <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+      <a href="#about">About</a><a href="#projects">Projects</a><a href="#skills">Tech stack</a><a href="#experience">Experience</a>
+    </nav>
+    <a class="nav-cta" href="#contact">Let's connect <span>↗</span></a>
+  </div>
+</header>
+<main>
+<section class="container hero" id="home">
+  <div class="hero-copy">
+    <div class="eyebrow"><span class="dot"></span> OPEN TO OPPORTUNITIES</div>
+    <h1>Building better<br>digital <span class="gradient">experiences.</span></h1>
+    <p>Hi, I’m <strong style="color:var(--text)">Jay Anne F. Sumaway</strong> — an IT graduate with experience in quality assurance, web content, and technical support. I enjoy finding problems, improving user experiences, and turning ideas into practical digital solutions.</p>
+    <div class="hero-actions">
+      <a class="button primary" href="#projects">Explore my work <span>↘</span></a>
+      <a class="button ghost" href="#contact">Get in touch <span>↗</span></a>
+    </div>
+    <div class="quick-stats">
+      <div class="stat"><strong>QA + Web</strong><span>Focus areas</span></div>
+      <div class="stat"><strong>Detail-driven</strong><span>Work approach</span></div>
+      <div class="stat"><strong>Always learning</strong><span>Growth mindset</span></div>
+    </div>
+  </div>
+  <div class="terminal" aria-label="Decorative code editor">
+    <div class="terminal-top"><span class="traffic"></span><span class="traffic"></span><span class="traffic"></span><span class="terminal-title">about-me.js</span></div>
+    <div class="terminal-body">
+      <span class="code-line"><span class="line-no">1</span><span class="kw">const</span> developer = {</span>
+      <span class="code-line"><span class="line-no">2</span>  <span class="prop">name</span>: <span class="str">"Jay Anne Sumaway"</span>,</span>
+      <span class="code-line"><span class="line-no">3</span>  <span class="prop">background</span>: <span class="str">"Information Technology"</span>,</span>
+      <span class="code-line"><span class="line-no">4</span>  <span class="prop">interests</span>: [</span>
+      <span class="code-line"><span class="line-no">5</span>    <span class="str">"Web Development"</span>,</span>
+      <span class="code-line"><span class="line-no">6</span>    <span class="str">"Quality Assurance"</span>,</span>
+      <span class="code-line"><span class="line-no">7</span>    <span class="str">"Problem Solving"</span></span>
+      <span class="code-line"><span class="line-no">8</span>  ],</span>
+      <span class="code-line"><span class="line-no">9</span>  <span class="prop">mindset</span>: <span class="str">"learn • build • improve"</span></span>
+      <span class="code-line"><span class="line-no">10</span>};</span>
+      <span class="code-line"><span class="line-no">11</span></span>
+      <span class="code-line"><span class="line-no">12</span><span class="comment">// Good software starts with curiosity.</span></span>
+      <span class="code-line"><span class="line-no">13</span><span class="func">console.log</span>(<span class="str">"Hello, world!"</span>); <span style="color:var(--cyan)">▍</span></span>
+    </div>
+    <div class="terminal-footer"><span>● PORTFOLIO / 2026</span><span>HTML · CSS · JAVASCRIPT</span></div>
+  </div>
+</section>
+
+<section class="section" id="about">
+ <div class="container">
+  <div class="section-head reveal"><div><div class="kicker">01 / About me</div><h2>Technical curiosity.<br>People-first thinking.</h2></div><p>I bring together a tester’s attention to detail and a support professional’s focus on people.</p></div>
+  <div class="about-grid">
+   <article class="card reveal"><div class="card-icon">⌘</div><h3>How I approach problems</h3><p>I like breaking a problem into clear steps, checking the details, and making sure the final result works for the people using it. My QA and support experience has taught me to communicate issues clearly and think from a user's perspective.</p><div class="focus-list"><div class="focus-row"><span class="check">✓</span><span>Test carefully and document reproducible issues</span></div><div class="focus-row"><span class="check">✓</span><span>Work collaboratively and communicate clearly</span></div><div class="focus-row"><span class="check">✓</span><span>Keep learning new tools and development practices</span></div></div></article>
+   <article class="card reveal" id="skills"><div class="card-icon">⌁</div><h3>Tools & technical interests</h3><p>My background includes academic IT projects, website content work, and hands-on webpage testing. This section can be tailored to the exact stack used in each project.</p><div class="stack"><span class="tag">HTML / CSS</span><span class="tag">JavaScript</span><span class="tag">Python / Django</span><span class="tag">MongoDB</span><span class="tag">Node.js</span><span class="tag">PostgreSQL</span><span class="tag">WordPress</span><span class="tag">Manual QA</span><span class="tag">Bug Reporting</span><span class="tag">Technical Support</span></div><div class="small-note">Only keep technologies you can comfortably discuss in an interview.</div></article>
+  </div>
+ </div>
+</section>
+
+<section class="section" id="projects" style="background:linear-gradient(180deg,transparent,rgba(19,27,47,.45),transparent)">
+ <div class="container">
+  <div class="section-head reveal"><div><div class="kicker">02 / Selected work</div><h2>Projects that show<br>how I think.</h2></div><p>A mix of academic systems, website work, and quality assurance. Add screenshots, repositories, or demos to make each project even stronger.</p></div>
+  <div class="project-grid">
+   <article class="card project reveal"><div class="project-top"><div class="project-icon">▤</div><span class="project-type">Academic system</span></div><h3>Online Supply Office Management System</h3><p>An academic project concept for managing supply requests and approval workflows, including purchase request routing across campus roles.</p><div class="stack"><span class="tag">Python</span><span class="tag">Django</span><span class="tag">MongoDB</span></div><div class="project-note">Add a repository link, screenshots, and your exact contribution.</div><a class="project-link" href="#contact">Ask me about this project ↗</a></article>
+   <article class="card project reveal"><div class="project-top"><div class="project-icon">⌘</div><span class="project-type">Web application</span></div><h3>KACooP Cooperative System</h3><p>A cooperative system project focused on organizing information and supporting digital workflows through a web application.</p><div class="stack"><span class="tag">Node.js</span><span class="tag">PostgreSQL</span></div><div class="project-note">Add the features you personally built and any live demo or GitHub URL.</div><a class="project-link" href="#contact">Ask me about this project ↗</a></article>
+   <article class="card project reveal"><div class="project-top"><div class="project-icon">⌕</div><span class="project-type">Quality assurance</span></div><h3>Webpage Quality Testing</h3><p>Test webpages for issues, check whether features behave as expected, and write clear bug reports to help teams investigate and resolve problems.</p><div class="stack"><span class="tag">Manual Testing</span><span class="tag">Bug Reports</span><span class="tag">UI Validation</span></div><div class="project-note">Use anonymized samples only; never publish confidential company data.</div></article>
+   <article class="card project reveal"><div class="project-top"><div class="project-icon">▧</div><span class="project-type">Web content</span></div><h3>WordPress Training Course Pages</h3><p>Created and formatted corporate training course webpages while collaborating with an intern team and working toward design deadlines.</p><div class="stack"><span class="tag">WordPress</span><span class="tag">Web Content</span><span class="tag">Teamwork</span></div><div class="project-note">Add approved screenshots or public pages if available.</div></article>
+  </div>
+ </div>
+</section>
+
+<section class="section" id="workflow">
+ <div class="container">
+  <div class="section-head reveal"><div><div class="kicker">03 / My workflow</div><h2>From problem to improvement.</h2></div><p>A simple process that works for testing, debugging, and building reliable digital experiences.</p></div>
+  <div class="workflow">
+   <article class="step reveal"><span class="step-num">STEP_01</span><h3>Understand</h3><p>Clarify the requirement, user need, and expected behaviour.</p></article>
+   <article class="step reveal"><span class="step-num">STEP_02</span><h3>Explore</h3><p>Inspect the flow, test scenarios, and identify edge cases.</p></article>
+   <article class="step reveal"><span class="step-num">STEP_03</span><h3>Document</h3><p>Record steps, expected results, actual results, and evidence.</p></article>
+   <article class="step reveal"><span class="step-num">STEP_04</span><h3>Improve</h3><p>Share clear feedback, retest fixes, and keep learning.</p></article>
+  </div>
+ </div>
+</section>
+
+<section class="section" id="experience">
+ <div class="container">
+  <div class="section-head reveal"><div><div class="kicker">04 / Experience & education</div><h2>A foundation in IT<br>and user support.</h2></div><p>Use this section to show the experience behind your technical skills.</p></div>
+  <div class="card reveal">
+   <div class="timeline">
+    <div class="timeline-item"><div class="timeline-meta">QUALITY ASSURANCE</div><h3>Quality Assurance Specialist · Salary LLC</h3><p>Tested webpages, checked expected functionality, and helped identify issues through structured testing. Add your exact dates, tools, and measurable results.</p></div>
+    <div class="timeline-item"><div class="timeline-meta">TECHNICAL SUPPORT & CUSTOMER SERVICE</div><h3>Customer Representative / Technical Support</h3><p>Supported customers, troubleshot technical concerns, and communicated solutions in a clear and customer-focused way. Add company name and employment dates.</p></div>
+    <div class="timeline-item"><div class="timeline-meta">INTERNSHIP · IT DEPARTMENT</div><h3>Project Alpha Team 1 · WordPress Web Content</h3><p>Created and formatted course webpages and coordinated with fellow interns to meet content and design deadlines.</p></div>
+    <div class="timeline-item"><div class="timeline-meta">EDUCATION</div><h3>Bachelor of Science in Information Technology</h3><p>Add your university, graduation year, and relevant coursework or academic awards here.</p></div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section class="section" id="contact">
+ <div class="container">
+  <div class="contact-box reveal"><div><div class="kicker">05 / Contact</div><h2>Have a role or project in mind?</h2><p>I’m interested in opportunities where I can contribute, keep learning, and help build dependable digital experiences. Reach out and let’s connect.</p><div class="small-note">Replace the sample email and profile links with your real contact details before publishing.</div></div><div class="contact-actions"><a class="button primary" href="mailto:your.email@example.com">Email me ↗</a><a class="button ghost" href="https://github.com/" target="_blank" rel="noreferrer">GitHub ↗</a><a class="button ghost" href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn ↗</a></div></div>
+ </div>
+</section>
+</main>
+<footer class="footer"><div class="container footer-inner"><span>© <span id="year"></span> Jay Anne F. Sumaway</span><span>Designed with curiosity · Built with HTML, CSS & JavaScript</span><a href="#home">Back to top ↑</a></div></footer>
+<script>
+const toggle=document.getElementById('menuToggle');
+const nav=document.getElementById('navLinks');
+toggle.addEventListener('click',()=>{const open=nav.classList.toggle('open');toggle.setAttribute('aria-expanded',String(open));toggle.textContent=open?'×':'☰';});
+nav.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>{nav.classList.remove('open');toggle.setAttribute('aria-expanded','false');toggle.textContent='☰';}));
+document.getElementById('year').textContent=new Date().getFullYear();
+const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target);}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+</script>
+</body>
+</html>
